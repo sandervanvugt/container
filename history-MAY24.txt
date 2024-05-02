@@ -1,0 +1,169 @@
+ROOT COMMAND
+[root@localhost ~]# history
+    1  dnf update
+    2  reboot
+    3  podman run -dit nginx
+    4  podman ps
+    5  podman attach nifty_buck 
+    6  podman exec -it nifty_buck sh
+    7  exit
+    8  podman os
+    9  podman ps
+   10  podman run -it nginx sh
+   11  cat /etc/os-release 
+   12  podman run -it ubuntu 
+   13  uname -r
+   14  dnf install -y git
+   15  git clone https://github.com/sandervanvugt/containers
+   16  cd containers/
+   17  ls
+   18  ./countdown 12
+   19  exit
+   20  cd containers/
+   21  ls
+   22  ./countdown 12
+   23  exit
+   24  systemctl enable --now podman-restart.service
+   25  exit
+   26  mkdir bind1
+   27  podman run --rm -d --name=bind1 --mount type=bind,source=bind1,target=/app nginx:latest
+   28  podman ps
+   29  podman exec -it bind1 sh
+   30  podman kill bind1
+   31  podman run --rm -d --name=bind1 --mount type=bind,source=bind1,target=/app:Z nginx:latest
+   32  ls -ldZ bind1/
+   33  podman exec -it bind1 sh
+   34  setenforce permissive
+   35  podman kill bind1
+   36  podman run --rm -d --name=bind1 --mount type=bind,source=bind1,target=/app:Z nginx:latest
+   37  podman kill bind1
+   38  podman run --rm -d --name=bind1 --mount type=bind,source=bind1,target=/app nginx:latest
+   39  podman exec -it bind1 sh
+   40  ls bind1
+   41  setenforce enforcing
+   42  podman run --rm -dit --name=bind2 -v bind2:/app:Z nginx:latest
+   43  podman exec -it bind2
+   44  podman exec -it bind2 sh
+   45  ls -ldZ
+   46  ls
+   47  mkdir bind2
+   48  podman stop bind2
+   49  podman run --rm -dit --name=bind2 -v bind2:/app:Z nginx:latest
+   50  podman exec -it bind2 sh
+   51  ls
+   52  ls bin2
+   53  ls bind2
+   54  ls bind2/
+   55  podman volumes
+   56  podman volume
+   57  podman volume ls
+   58  history
+   59  podman volume ls
+   60  podman volume inspect bind2 
+   61  ls -l <pre>/var/lib/containers/storage/volumes/bind2/_data</pre>
+   62  ls -l /var/lib/containers/storage/volumes/bind2/_data
+   63  history
+
+STUDENT COMMANDS
+[student@localhost ~]$ history
+    1  sudo -i
+    2  podman ps
+    3  sudo -i
+    4  podman run -d nginx
+    5  podman ps
+    6  sudo find / -name "c2ce3*"
+    7  sudo dnf install podman -y
+    8  sudo dnf install container-tools
+    9  sudo podman -v
+   10  podman search nginx
+   11  podman run -d docker.io/library/nginx
+   12  less /etc/containers/registries.conf
+   13  podman search nginx
+   14  podman run -d registry.redhat.io/rhel9/nginx-124
+   15* podman 
+   16  podman search nginx
+   17  podman login docker.io
+   18  podman run ubuntu
+   19  podman ps
+   20  podman ps -a
+   21  podman run -it ubuntu
+   22  podman ps
+   23  podman attach boring_northcutt 
+   24  sudo -i
+   25  git clone https://github.com/sandervanvugt/containers
+   26  podman ps
+   27  podman stop c2ce
+   28  podman ps
+   29  podman rm c2ce
+   30  podman run -d mariadb
+   31  podman ps
+   32  podman ps -a
+   33  podman logs heuristic_burnell 
+   34  podman run -d mariadb --env MARIADB_ROOT_PASSWORD=password
+   35  podman ps -a
+   36  podman logs zen_wiles 
+   37  podman run --help | less
+   38  podman run -d -e MARIADB_ROOT_PASSWORD=password mariadb
+   39  podman ps
+   40  podman images
+   41  podman inspect 465b | less
+   42  podman ps
+   43  podman inspect 20dec | less
+   44  history
+   45  podman stats
+   46  podman run --name webserver -d -p 8080:80 nginx
+   47  podman ps
+   48  curl localhost:8080
+   49  podman ports
+   50  podman port
+   51  podman port webserver 
+   52  podman ps
+   53  podman run -d -p 8081:80 --memory="128m" nginx
+   54  podman ps
+   55  podman stats zen_ride 
+   56  history
+   57  podman ps
+   58  podman exec -it great_cray bash
+   59  ls
+   60  cd containers/
+   61  history | grep git
+   62  ls
+   63  ls dockerfile/
+   64  ls
+   65  cd dockerfile/
+   66  vim Dockerfile 
+   67  docker build -t nmap .
+   68  podman build -t nmap .
+   69  podman images
+   70  cd ..
+   71  ls
+   72  cd alpmap/
+   73  vim Dockerfile 
+   74  podman build -t alpmap .
+   75  podman images
+   76  vim Dockerfile 
+   77  podman build -t rootmap .
+   78  podman run rootmap:latest 
+   79  podman run -it rootmap:latest sh
+   80  vim Dockerfile 
+   81  podman build -t cmdmap .
+   82  podman run -it cmdmap sh
+   83  history
+   84  cat Dockerfile 
+   85  cd 
+   86  podman run -d -p 5000:5000 --restart=always --name registry registry:latest
+   87  sudo -i
+   88  podman pull fedora
+   89  podman images
+   90  podman tag fedora:latest localhost:5000/myfedora
+   91  podman images
+   92  podman push localhost:5000/myfedora --tls-verify=false
+   93  podman rmi abf20c44c8e3 
+   94  podman rmi --force abf20c44c8e3 
+   95  podman ps
+   96  podman exec -it registry sh
+   97  podman pull localhost:5000/myfedora
+   98  podman pull localhost:5000/myfedora --tls-verify=false
+   99  sudo -i
+  100  history
+
